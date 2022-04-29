@@ -13,16 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('specialities', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('h1')->nullable();
-            $table->string('description')->nullable();
-            $table->string('chpu');
-            $table->text('content')->nullable();
-            $table->integer('price');
-            $table->integer('duration')->default(45);
-            $table->boolean('publishing')->default(false);
         });
     }
 
@@ -33,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('specialities');
     }
 };

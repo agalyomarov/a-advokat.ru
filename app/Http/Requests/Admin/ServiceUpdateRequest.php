@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ServiceStoreRequest extends FormRequest
+class ServiceUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,6 +25,7 @@ class ServiceStoreRequest extends FormRequest
     {
         return [
             'title' => ['required'],
+            'chpu' => [],
             'h1' => [],
             'description' => [],
             'content' => [],

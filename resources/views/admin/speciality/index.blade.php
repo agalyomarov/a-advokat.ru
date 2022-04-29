@@ -3,16 +3,21 @@
 @section('content')
     <div class="row mb-2">
         <div class="col-sm-1">
-            <h1 class="m-0">Услиги</h1>
-        </div>
-        <div class="col-sm-2">
-            <a href="{{ route('admin.service.create') }}" type="button" class="btn btn-block btn-info">
-                Добавить услугу
-            </a>
+            <h1 class="m-0"> Специальности</h1>
         </div>
     </div>
+    <div class="rol mb-2">
+        <form action="{{ route('admin.service.store') }}" method="post">
+            @csrf
+            <label for="price">Название</label>
+            <div class="d-flex">
+                <input type="text" class="form-control col-3 mr-4" placeholder="название" name="title">
+                <button type="submit" class="btn btn-primary col-2">Добавить</button>
+            </div>
+        </form>
+    </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-2">
             @if (isset($services) && count($services) > 0)
                 <div class="card">
                     <div class="card-body table-responsive p-0">
@@ -44,7 +49,7 @@
                     </div>
                 </div>
             @else
-                <h6>Услуги не добавлены</h6>
+                <h6>Специальности не добавлены</h6>
             @endif
         </div>
     </div>
