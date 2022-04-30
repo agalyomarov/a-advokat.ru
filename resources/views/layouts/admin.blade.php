@@ -23,7 +23,7 @@
     <!-- overlayScrollbars -->
     {{-- <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}"> --}}
     <!-- Daterange picker -->
-    {{-- <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
 </head>
@@ -50,9 +50,9 @@
     {{-- <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script> --}}
     {{-- <script src="plugins/jquery-knob/jquery.knob.min.js"></script> --}}
     <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-    {{-- <script src="plugins/daterangepicker/daterangepicker.js"></script> --}}
-    {{-- <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script> --}}
-    {{-- <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script> --}}
+    {{-- <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script> --}}
+    {{-- <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script> --}}
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
     <script>
         // $.widget.bridge('uibutton', $.ui.button);

@@ -17,23 +17,23 @@
             <form action="{{ route('admin.service.store') }}" method="post">
                 @csrf
                 <div class="form-group">
-                    <label for="price">Название</label>
+                    <label>Название</label>
                     <input type="text" class="form-control" placeholder="Заголовок" name="title">
                 </div>
                 <div class="form-group">
-                    <label for="price">Для h1</label>
-                    <input type="text" class="form-control" placeholder="Заголовок" name="h1">
+                    <label>Для h1</label>
+                    <input type="text" class="form-control" name="h1" placeholder="For h1">
                 </div>
                 <div class="form-group">
-                    <label for="price">description</label>
-                    <input type="text" class="form-control" placeholder="Заголовок" name="decription">
+                    <label>description</label>
+                    <input type="text" class="form-control" name="decription" placeholder="description">
                 </div>
                 <div class="form-group">
-                    <label for="price">Описание</label>
+                    <label>Описание</label>
                     <textarea id="creare_service_summernote" name="content"></textarea>
                 </div>
                 <div class="form-group col-3">
-                    <label for="price">Цена</label>
+                    <label>Цена</label>
                     <input type="number" class="form-control" id="price" placeholder="Цена" name="price">
                 </div>
                 <div class="form-group">

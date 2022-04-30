@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('chpu');
             $table->string('h1');
             $table->string('description');
-            $table->string('video');
+            $table->string('media');
             $table->text('content');
             $table->string('regnumber');
         });

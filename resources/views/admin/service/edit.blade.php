@@ -18,26 +18,26 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <label for="price">Название</label>
+                    <label>Название</label>
                     <input type="textphp" class="form-control" placeholder="Заголовок" name="title" value="{{ $service->title }}">
                 </div>
                 <div class="form-group">
-                    <label for="price">ЧПУ</label>
+                    <label>ЧПУ</label>
                     <input type="text" class="form-control" placeholder="чпу" name="chpu" value="{{ $service->chpu }}">
                 </div>
                 <div class="form-group">
-                    <label for="price">Для h1</label>
+                    <label>Для h1</label>
                     <input type="text" class="form-control" placeholder="For h1" name="h1" value="{{ $service->h1 }}">
                 </div>
                 <div class="form-group">
-                    <label for="price">description</label>
+                    <label>description</label>
                     <input type="text" class="form-control" placeholder="description" name="decription" value="{{ $service->decription }}">
                 </div>
                 <div class=" form-group">
                     <textarea id="creare_service_summernote" name="content">{{ $service->content }}</textarea>
                 </div>
                 <div class="form-group col-3">
-                    <label for="price">Цена</label>
+                    <label>Цена</label>
                     <input type="number" class="form-control" id="price" placeholder="Цена" name="price" value="{{ $service->price }}">
                 </div>
                 <div class="form-group">

@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="row mb-2">
-        <div class="col-sm-1">
-            <h1 class="m-0">Услиги</h1>
+        <div class="mr-3">
+            <h1>Сотрудники</h1>
         </div>
-        <div class="col-sm-2">
-            <a href="{{ route('admin.service.create') }}" type="button" class="btn btn-block btn-info">
-                Добавить услугу
+        <div class="col-2">
+            <a href="{{ route('admin.personal.create') }}" type="button" class="btn btn-block btn-info">
+                Добавить сотрудника
             </a>
         </div>
     </div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             @else
-                <h6>Услуги не добавлены</h6>
+                <h6>Сотрудники не добавлены</h6>
             @endif
         </div>
     </div>
