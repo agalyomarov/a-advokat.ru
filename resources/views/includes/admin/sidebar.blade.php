@@ -36,6 +36,14 @@
                           </p>
                       </a>
                   </li>
+                  <li class="nav-item">
+                      <a href="{{ route('admin.personal.index') }}" class="nav-link">
+                          <i class="nav-icon fas fa-calendar-check"></i>
+                          <p>
+                              Онлайн записи
+                          </p>
+                      </a>
+                  </li>
               </ul>
           </nav>
           <!-- /.sidebar-menu -->

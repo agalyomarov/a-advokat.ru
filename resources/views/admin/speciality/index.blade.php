@@ -62,12 +62,14 @@
         </div>
     </div>
     <script type="text/javascript">
-        document.querySelector(".delete-speciality").addEventListener("click", (e) => {
-            if (e.target.classList.contains("delete-speciality-el")) {
-                if (confirm('Удалить специальность?')) {
-                    window.location = `/admin/speciality/${e.target.dataset.id}/delete`;
+        if (document.querySelector(".delete-speciality")) {
+            document.querySelector(".delete-speciality").addEventListener("click", (e) => {
+                if (e.target.classList.contains("delete-speciality-el")) {
+                    if (confirm('Удалить специальность?')) {
+                        window.location = `/admin/speciality/${e.target.dataset.id}/delete`;
+                    }
                 }
-            }
-        })
+            });
+        };
     </script>
 @endsection

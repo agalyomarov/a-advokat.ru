@@ -1,24 +1,9 @@
 @extends('layouts.admin')
 @section('content')
-    <style type="text/css">
-        td.specialDay,
-        table.ui-datepicker-calendar tbody td.specialDay a {
-            background-color: #2DDE98 !important;
-            color: white !important;
-            border: none !important;
-            font-size: 16px !important;
-            font-weight: bold !important;
-            text-align: center !important;
-            height: 3em !important;
-            line-height: 3em !important;
-            border-radius: 5px !important;
-        }
-
-    </style>
     <div class="row mb-5">
         <div class="col-12 d-flex">
             <h1 class="mr-4">Добавить cотрутника</h1>
-            <a href="{{ route('admin.service.index') }}" class="btn btn-success">Главная</a>
+            <a href="{{ route('admin.personal.index') }}" class="btn btn-success">Главная</a>
         </div>
         <div class="col-9 mt-3">
             @if ($errors->any())
@@ -28,7 +13,7 @@
                     @endforeach
                 </ul>
             @endif
-            <form action="{{ route('admin.service.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.personal.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <img id='full' style="height:100px; width:100px;object-fit:cover;box-sizing:border-box;border:2px solid white">
                 <img class="ml-5" id='output' style="height:100px; width:100px;object-fit:cover;border-radius:50%;box-sizing:border-box;border:2px solid white">
@@ -36,42 +21,44 @@
                     <label for="exampleInputFile">Изображение сотрудника</label>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input personal-avatar">
+                            <input type="file" class="custom-file-input personal-avatar" name="image">
                             <label class="custom-file-label">Выбрать файл</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Ф.И.О</label>
-                    <input type="text" class="form-control" placeholder="Ф.И.О" name="fullname">
+                    <input type="text" class="form-control" placeholder="Ф.И.О" name="fullname" value="{{ old('fullname') }}">
                 </div>
                 <div class="form-group">
                     <label>Для h1</label>
-                    <input type="text" class="form-control" placeholder="For h1" name="h1">
+                    <input type="text" class="form-control" placeholder="For h1" name="h1" value="{{ old('h1') }}">
                 </div>
                 <div class="form-group">
                     <label>description</label>
-                    <input type="text" class="form-control" placeholder="description" name="decription">
+                    <input type="text" class="form-control" placeholder="description" name="description" value="{{ old('description') }}">
                 </div>
                 <div class="form-group">
                     <label>Media</label>
-                    <input type="text" class="form-control" placeholder="Относительный путь" name="media">
+                    <input type="text" class="form-control" placeholder="Относительный путь" name="media" value="{{ old('media') }}">
                 </div>
                 <div class="form-group">
                     <label>Описание</label>
-                    <textarea id="creare_service_summernote" name="content"></textarea>
+                    <textarea id="creare_service_summernote" name="content">
+                        {{ old('content') }}
+                    </textarea>
                 </div>
                 <div class="form-group">
                     <label>Рег.номер</label>
-                    <input type="text" class="form-control" placeholder="Регистрационный номер" name="regnumber">
+                    <input type="text" class="form-control" placeholder="Регистрационный номер" name="regnumber" value="{{ old('regnumber') }}">
                 </div>
                 <div class="form-group">
                     @if (isset($specialities) && count($specialities) > 0)
                         <label>Специальности</label>
                         @foreach ($specialities as $speciality)
                             <div class="form-check">
-                                <input id="{{ $speciality->translate }}" class=" form-check-input" type="checkbox" name='speciality' value="{{ $speciality->translate }}">
-                                <label class="form-check-label" for="{{ $speciality->translate }}"> {{ $speciality->title }}</label>
+                                <input id="{{ $speciality->id }}" class=" form-check-input" type="checkbox" name='speciality[]' value="{{ $speciality->id }}">
+                                <label class="form-check-label" for="{{ $speciality->id }}"> {{ $speciality->title }}</label>
                             </div>
                         @endforeach
                     @else
@@ -80,10 +67,9 @@
                 </div>
                 <div class="form-group">
                     <label>Индивидуальный временной интервал в форме бронирования</label>
-                    <select class="form-control col-3" name="time_intarval">
-                        <option value="45">Стандартная</option>
-                        @for ($i = 30; $i <= 120; $i += 30)
-                            <option value="{{ $i }}">{{ $i }} минут</option>
+                    <select class="form-control col-3" name="interval">
+                        @for ($i = 30; $i <= 120; $i += 15)
+                            <option {{ $i == 45 ? 'selected' : '' }} value="{{ $i }}">{{ $i }} минут</option>
                         @endfor
                     </select>
                 </div>
@@ -99,7 +85,6 @@
                     <input type="submit" class="btn btn-success" value="Добавить">
                 </div>
             </form>
-
         </div>
     </div>
     <script>

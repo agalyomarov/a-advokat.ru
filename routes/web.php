@@ -33,9 +33,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
    Route::group(['prefix' => 'personal', 'as' => 'personal.'], function () {
       Route::get('/', [PersonalController::class, 'index'])->name('index');
       Route::get('/create', [PersonalController::class, 'create'])->name('create');
-      // Route::post('/store', [ServiceController::class, 'store'])->name('store');
-      // Route::get('/{service}/edit', [ServiceController::class, 'edit'])->name('edit');
-      // Route::put('/{service}', [ServiceController::class, 'update'])->name('update');
-      // Route::get('/{service}/delete', [ServiceController::class, 'delete'])->name('delete');
+      Route::post('/store', [PersonalController::class, 'store'])->name('store');
+      Route::get('/{personal}/edit', [PersonalController::class, 'edit'])->name('edit');
+      Route::put('/{personal}', [PersonalController::class, 'update'])->name('update');
+      Route::get('/{personal}/delete', [PersonalController::class, 'delete'])->name('delete');
+   });
+   Route::group(['prefix' => 'entry', 'as' => 'entry.'], function () {
+      Route::get('/', [PersonalController::class, 'index'])->name('index');
+      // Route::get('/create', [PersonalController::class, 'create'])->name('create');
+      // Route::post('/store', [PersonalController::class, 'store'])->name('store');
+      // Route::get('/{personal}/edit', [PersonalController::class, 'edit'])->name('edit');
+      // Route::put('/{personal}', [PersonalController::class, 'update'])->name('update');
+      // Route::get('/{personal}/delete', [PersonalController::class, 'delete'])->name('delete');
    });
 });

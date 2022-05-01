@@ -15,6 +15,10 @@
                 <label for="price">Название</label>
                 <input type="text" class="form-control" placeholder="название" name="title" value="{{ $speciality->title }}">
             </div>
+            <div class="form-group">
+                <label for="price">Перевод</label>
+                <input type="text" class="form-control" placeholder="название" name="translate" value="{{ $speciality->translate }}">
+            </div>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" name="publishing" {{ $speciality->publishing ? 'checked' : '' }}>
                 <label class="form-check-label">Опубликовано</label>

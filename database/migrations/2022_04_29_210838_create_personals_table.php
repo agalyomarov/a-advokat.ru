@@ -21,8 +21,10 @@ return new class extends Migration
             $table->string('h1');
             $table->string('description');
             $table->string('media');
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->string('regnumber');
+            $table->string('interval');
+            $table->boolean('publishing')->default(false);
         });
     }
 
