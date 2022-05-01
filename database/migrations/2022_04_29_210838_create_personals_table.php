@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('personals', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
             $table->string('fullname');
             $table->string('chpu');
             $table->string('h1');

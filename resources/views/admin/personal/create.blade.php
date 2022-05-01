@@ -1,8 +1,23 @@
 @extends('layouts.admin')
 @section('content')
+    <style type="text/css">
+        td.specialDay,
+        table.ui-datepicker-calendar tbody td.specialDay a {
+            background-color: #2DDE98 !important;
+            color: white !important;
+            border: none !important;
+            font-size: 16px !important;
+            font-weight: bold !important;
+            text-align: center !important;
+            height: 3em !important;
+            line-height: 3em !important;
+            border-radius: 5px !important;
+        }
+
+    </style>
     <div class="row mb-5">
         <div class="col-12 d-flex">
-            <h1 class="mr-4">Добавить услиги</h1>
+            <h1 class="mr-4">Добавить cотрутника</h1>
             <a href="{{ route('admin.service.index') }}" class="btn btn-success">Главная</a>
         </div>
         <div class="col-9 mt-3">
@@ -13,7 +28,7 @@
                     @endforeach
                 </ul>
             @endif
-            <form action="{{ route('admin.service.store') }}" method="post">
+            <form action="{{ route('admin.service.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <img id='full' style="height:100px; width:100px;object-fit:cover;box-sizing:border-box;border:2px solid white">
                 <img class="ml-5" id='output' style="height:100px; width:100px;object-fit:cover;border-radius:50%;box-sizing:border-box;border:2px solid white">
@@ -81,18 +96,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Расписание</label>
-                    <div class="d-flex">
-                        <div class="form-check">
-                            <input id="tab_1" class="form-check-input" type="radio" name="tab" checked value="user">
-                            <label class="form-check-label" for="tab_1">Пользовательский</label>
-                        </div>
-                    </div>
-                    <div class="row bg-white mt-2" id="user-block">
-
-                    </div>
+                    <input type="submit" class="btn btn-success" value="Добавить">
                 </div>
             </form>
+
         </div>
     </div>
     <script>
@@ -108,6 +115,18 @@
             };
             reader.readAsDataURL(input.files[0]);
             document.querySelector('.custom-file-label').innerText = event.target.value;
+        });
+        $('#creare_service_summernote').summernote({
+            height: 300,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ]
         });
     </script>
 @endsection

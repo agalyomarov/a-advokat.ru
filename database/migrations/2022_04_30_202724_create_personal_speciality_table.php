@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('personal_id');
             $table->unsignedBigInteger('speciality_id');
+            $table->unique(['personal_id', 'speciality_id'], 'personal_speciality_uniqx');
         });
     }
 
